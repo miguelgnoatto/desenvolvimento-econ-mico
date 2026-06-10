@@ -1,1 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economia do Oeste Paranaense</title>
+    <style>
+        :root {
+            --primary: #1b4332;
+            --secondary: #40916c;
+            --accent: #2d6a4f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f4;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .grid-cidades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e9ecef;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            border: 1px solid #ced4da;
+        }
+
+        .card-body ul {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .card-body li::before {
+            content: "✔";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .tabela-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+            margin-top: 3rem;
+        }
+
+        .tabela-container h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .grid-cidades { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Oeste em Foco</h1>
+        <p>A Tríade Econômica do Paraná: Cascavel, Toledo e Foz do Iguaçu</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="intro">
+            <h2>A Força de uma Região Integrada</h2>
+            <p>O Oeste do Paraná é uma das regiões mais prósperas e dinâmicas do Brasil. Embora compartilhem do mesmo território geográfico, Cascavel, Toledo e Foz do Iguaçu desenvolveram vocações econômicas distintas e complementares, criando um ecossistema econômico forte, autossuficiente e altamente competitivo.</p>
+        </section>
+
+        <section class="grid-cidades">
+            
+            <!-- CARD CASCAVEL -->
+            <div class="card">
+                <div class="card-header">Cascavel</div>
+                <div class="card-body">
+                    <span class="badge">Capital do Oeste</span>
+                    <p>Consolidada como um grande centro de convergência logística, comercial e de serviços da região.</p>
+                    <ul>
+                        <li><strong>Polo de Serviços e Saúde:</strong> Atendimento médico e educacional de alta complexidade para dezenas de municípios.</li>
+                        <li><strong>Show Rural Coopavel:</strong> Uma das maiores vitrines mundiais de tecnologia agrícola, movimentando bilhões anualmente.</li>
+                        <li><strong>Infraestrutura e Logística:</strong> Entroncamento rodoviário estratégico para o escoamento de safras e bens.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CARD TOLEDO -->
+            <div class="card">
+                <div class="card-header">Toledo</div>
+                <div class="card-body">
+                    <span class="badge">Capital do Agronegócio</span>
+                    <p>Líder absoluta no Paraná em Valor Bruto da Produção Agropecuária (VBP), movida por cadeias integradas.</p>
+                    <ul>
+                        <li><strong>Gigante da Proteína Animal:</strong> Potência nacional na produção de suínos, aves e derivados de leite.</li>
+                        <li><strong>Agroindústria Forte:</strong> Concentração de grandes cooperativas e plantas de processamento de alimentos, além do setor farmacêutico.</li>
+                        <li><strong>Sustentabilidade:</strong> Referência na transformação de dejetos animais em biogás e energia limpa.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CARD FOZ DO IGUAÇU -->
+            <div class="card">
+                <div class="card-header">Foz do Iguaçu</div>
+                <div class="card-body">
+                    <span class="badge">Conexão Global</span>
+                    <p>Dinâmica econômica voltada ao turismo internacional, produção de energia e comércio de fronteira.</p>
+                    <ul>
+                        <li><strong>Turismo Internacional:</strong> Destino global de destaque com as Cataratas do Iguaçu e infraestrutura hoteleira robusta.</li>
+                        <li><strong>Geração de Energia:</strong> Impacto econômico massivo gerado pela Usina Binacional de Itaipu e royalties.</li>
+                        <li><strong>Hub do Mercosul:</strong> Ponto estratégico de comércio exterior e logística entre o Brasil, Paraguai e Argentina.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SEÇÃO TABELA -->
+        <section class="tabela-container">
+            <h2>Resumo das Vocações Econômicas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Município</th>
+                        <th>Principal Motor Econômico</th>
+                        <th>Destaque Industrial / Setorial</th>
+                        <th>Perfil de Atração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cascavel</strong></td>
+                        <td>Comércio, Serviços e Saúde</td>
+                        <td>Metalmecânico e Fertilizantes</td>
+                        <td>Regional (Consumo e Logística)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Toledo</strong></td>
+                        <td>Agronegócio e Agroindústria</td>
+                        <td>Alimentos e Farmacêutica</td>
+                        <td>Nacional (Alimentos e Tecnologia Rural)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Foz do Iguaçu</strong></td>
+                        <td>Turismo, Energia e Logística</td>
+                        <td>Setor Energético (Itaipu Binacional)</td>
+                        <td>Internacional (Turismo e Comércio Exterior)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Painel Econômico do Oeste do Paraná. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
