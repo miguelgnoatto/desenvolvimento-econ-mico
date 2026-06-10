@@ -1,279 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Economia do Oeste Paranaense</title>
-    <style>
-        :root {
-            --primary: #1b4332;
-            --secondary: #40916c;
-            --accent: #2d6a4f;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desenvolvimento Econômico</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+/* Navbar fixa */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #023e8a, #0077b6);
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #90e0ef;
+}
 
-        body {
-            background-color: #f4f6f4;
-            color: var(--dark);
-            line-height: 1.6;
-        }
+/* Header com gradiente */
+header {
+    height: 400px;
+    background: linear-gradient(rgba(0,119,182,0.8), rgba(2,62,138,0.8)), url('https://images.unsplash.com/photo-1565372911900-95d566a0e12b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1400') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s ease forwards;
+}
+header p {
+    font-size: 1.5em;
+    animation: fadeInUp 1s ease forwards;
+}
 
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
+/* Seções */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 20px 50px 20px;
+}
+section {
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUpSection 1s forwards;
+}
+section:nth-of-type(1) { animation-delay: 0.2s; }
+section:nth-of-type(2) { animation-delay: 0.4s; }
+section:nth-of-type(3) { animation-delay: 0.6s; }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+h2 {
+    color: #0077b6;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+/* Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+/* Footer */
+footer {
+    background: #023e8a;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
 
-        .intro {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-            border-left: 5px solid var(--secondary);
-        }
+/* Animações */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUpSection {
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        .grid-cidades {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem;
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #e9ecef;
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            border: 1px solid #ced4da;
-        }
-
-        .card-body ul {
-            list-style-type: none;
-            margin-top: 1rem;
-        }
-
-        .card-body li {
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .card-body li::before {
-            content: "✔";
-            color: var(--secondary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .tabela-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            overflow-x: auto;
-            margin-top: 3rem;
-        }
-
-        .tabela-container h2 {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 0.5rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            min-width: 600px;
-        }
-
-        th, td {
-            padding: 1rem;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        th {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        footer {
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 1.5rem 1rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .grid-cidades { grid-template-columns: 1fr; }
-        }
-    </style>
+/* Responsivo */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    nav a {
+        margin: 10px 0;
+    }
+    header h1 { font-size: 2em; }
+    header p { font-size: 1.2em; }
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Oeste em Foco</h1>
-        <p>A Tríade Econômica do Paraná: Cascavel, Toledo e Foz do Iguaçu</p>
-    </header>
+<nav>
+    <a href="#conceitos">Conceitos</a>
+    <a href="#indicadores">Indicadores</a>
+    <a href="#imagens">Galeria</a>
+</nav>
 
-    <div class="container">
-        
-        <section class="intro">
-            <h2>A Força de uma Região Integrada</h2>
-            <p>O Oeste do Paraná é uma das regiões mais prósperas e dinâmicas do Brasil. Embora compartilhem do mesmo território geográfico, Cascavel, Toledo e Foz do Iguaçu desenvolveram vocações econômicas distintas e complementares, criando um ecossistema econômico forte, autossuficiente e altamente competitivo.</p>
-        </section>
+<header>
+    <h1>Desenvolvimento Econômico</h1>
+    <p>Aprenda sobre crescimento, renda e indicadores econômicos</p>
+</header>
 
-        <section class="grid-cidades">
-            
-            <!-- CARD CASCAVEL -->
+<main>
+    <section id="conceitos">
+        <h2>Conceitos Fundamentais</h2>
+        <div class="cards">
             <div class="card">
-                <div class="card-header">Cascavel</div>
-                <div class="card-body">
-                    <span class="badge">Capital do Oeste</span>
-                    <p>Consolidada como um grande centro de convergência logística, comercial e de serviços da região.</p>
-                    <ul>
-                        <li><strong>Polo de Serviços e Saúde:</strong> Atendimento médico e educacional de alta complexidade para dezenas de municípios.</li>
-                        <li><strong>Show Rural Coopavel:</strong> Uma das maiores vitrines mundiais de tecnologia agrícola, movimentando bilhões anualmente.</li>
-                        <li><strong>Infraestrutura e Logística:</strong> Entroncamento rodoviário estratégico para o escoamento de safras e bens.</li>
-                    </ul>
-                </div>
+                <h3>Crescimento</h3>
+                <p>Aumento da produção e riqueza de um país ao longo do tempo.</p>
             </div>
-
-            <!-- CARD TOLEDO -->
             <div class="card">
-                <div class="card-header">Toledo</div>
-                <div class="card-body">
-                    <span class="badge">Capital do Agronegócio</span>
-                    <p>Líder absoluta no Paraná em Valor Bruto da Produção Agropecuária (VBP), movida por cadeias integradas.</p>
-                    <ul>
-                        <li><strong>Gigante da Proteína Animal:</strong> Potência nacional na produção de suínos, aves e derivados de leite.</li>
-                        <li><strong>Agroindústria Forte:</strong> Concentração de grandes cooperativas e plantas de processamento de alimentos, além do setor farmacêutico.</li>
-                        <li><strong>Sustentabilidade:</strong> Referência na transformação de dejetos animais em biogás e energia limpa.</li>
-                    </ul>
-                </div>
+                <h3>Renda</h3>
+                <p>Distribuição justa da riqueza para melhoria da qualidade de vida.</p>
             </div>
-
-            <!-- CARD FOZ DO IGUAÇU -->
             <div class="card">
-                <div class="card-header">Foz do Iguaçu</div>
-                <div class="card-body">
-                    <span class="badge">Conexão Global</span>
-                    <p>Dinâmica econômica voltada ao turismo internacional, produção de energia e comércio de fronteira.</p>
-                    <ul>
-                        <li><strong>Turismo Internacional:</strong> Destino global de destaque com as Cataratas do Iguaçu e infraestrutura hoteleira robusta.</li>
-                        <li><strong>Geração de Energia:</strong> Impacto econômico massivo gerado pela Usina Binacional de Itaipu e royalties.</li>
-                        <li><strong>Hub do Mercosul:</strong> Ponto estratégico de comércio exterior e logística entre o Brasil, Paraguai e Argentina.</li>
-                    </ul>
-                </div>
+                <h3>Emprego</h3>
+                <p>Mais empregos significam estabilidade econômica e prosperidade.</p>
             </div>
+        </div>
+    </section>
 
-        </section>
+    <section id="indicadores">
+        <h2>Indicadores Econômicos</h2>
+        <p>Medimos desenvolvimento através do PIB, IDH, desemprego e outros indicadores.</p>
+        <img src="https://images.unsplash.com/photo-1565372911900-95d566a0e12b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Indicadores econômicos">
+    </section>
 
-        <!-- SEÇÃO TABELA -->
-        <section class="tabela-container">
-            <h2>Resumo das Vocações Econômicas</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Município</th>
-                        <th>Principal Motor Econômico</th>
-                        <th>Destaque Industrial / Setorial</th>
-                        <th>Perfil de Atração</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Cascavel</strong></td>
-                        <td>Comércio, Serviços e Saúde</td>
-                        <td>Metalmecânico e Fertilizantes</td>
-                        <td>Regional (Consumo e Logística)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Toledo</strong></td>
-                        <td>Agronegócio e Agroindústria</td>
-                        <td>Alimentos e Farmacêutica</td>
-                        <td>Nacional (Alimentos e Tecnologia Rural)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Foz do Iguaçu</strong></td>
-                        <td>Turismo, Energia e Logística</td>
-                        <td>Setor Energético (Itaipu Binacional)</td>
-                        <td>Internacional (Turismo e Comércio Exterior)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <section id="imagens">
+        <h2>Galeria de Imagens</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1573164574397-2d5a8e6b9e49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Cidade">
+                <p>Urbanização e crescimento urbano</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Economia">
+                <p>Atividades econômicas e comércio</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Tecnologia">
+                <p>Tecnologia e inovação impulsionando o desenvolvimento</p>
+            </div>
+        </div>
+    </section>
+</main>
 
-    </div>
-
-    <footer>
-        <p>&copy; 2026 - Painel Econômico do Oeste do Paraná. Todos os direitos reservados.</p>
-    </footer>
+<footer>
+    <p>© 2026 Desenvolvimento Econômico. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
+
